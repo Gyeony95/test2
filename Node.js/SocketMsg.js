@@ -77,7 +77,7 @@ module.exports = function(socketio, agents) {
                         "id" : agents.getUserAgents()[j].id,
                         "name" : agents.getUserAgents()[j].name,
                         "type" : agents.getUserAgents()[j].type,
-                        "connect" : agents.getUserAgents()[i].connect,
+                        "connect" : agents.getUserAgents()[j].connect,
                     };
                 }
                 target.emit('user_list', msg);
