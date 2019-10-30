@@ -18,8 +18,8 @@ module.exports = function(socketio, agents) {
         client.on('heart', heart);
 
         function get(user) {
-            console.log(('register:' + client.id + ' name : ' + user.name + ' type:' + user.type).red);
-            agents.addUserAgent(client.id, user.name, user.type);
+            console.log(('register:' + client.id + ' name : ' + user.name +'connect:' +user.connect+' type:' + user.type).red);
+            agents.addUserAgent(client.id, user.name,user.connect, user.type);
             //agents.echoUserAgents();
 
             var msg = {
