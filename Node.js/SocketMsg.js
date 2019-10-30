@@ -18,6 +18,7 @@ module.exports = function(socketio, agents) {
         client.on('heart', heart);
 
         function get(user) {
+            console.log("get 들어옴");
             console.log(('register:' + client.id + ' name : ' + user.name +'connect:' +user.connect+' type:' + user.type).red);
             agents.addUserAgent(client.id, user.name,user.connect, user.type);
             //agents.echoUserAgents();
@@ -33,6 +34,7 @@ module.exports = function(socketio, agents) {
         }
     
         function request_user_list() {
+            console.log("request_user_list");
             var msg = {
                 "source" : "EasyRTC Server",
                 "target" : client.id,
@@ -58,6 +60,7 @@ module.exports = function(socketio, agents) {
         }
 
         function update() {
+            console.log("update");
             var clients = agents.getUserAgents();
             for (var i = 0; i < clients.length; i++) {
                 var target = socketio.sockets.connected[clients[i].id];
@@ -82,6 +85,7 @@ module.exports = function(socketio, agents) {
         }
 
         function turn(msg) {
+            console.log("turn");
             var target = socketio.sockets.connected[msg.target];
             console.log(('receive event ' + msg.type + ' from ' + msg.source + ' to ' + msg.target).yellow);
             target.emit('event', msg);
@@ -91,6 +95,7 @@ module.exports = function(socketio, agents) {
         }
 
         function candidate(msg) {
+            console.log("candidate");
             var target = socketio.sockets.connected[msg.target];
             console.log(('receive candidate from ' + msg.source + ' to ' + msg.target).green);
             target.emit('candidate', msg);
