@@ -45,6 +45,7 @@ module.exports = function(socketio, agents) {
                     "id" : agents.getUserAgents()[i].id,
                     "name" : agents.getUserAgents()[i].name,
                     "type" : agents.getUserAgents()[i].type,
+                    "connect" : agents.getUserAgents()[i].connect,
                 };
             }
             client.emit('user_list', msg);
@@ -73,6 +74,7 @@ module.exports = function(socketio, agents) {
                         "id" : agents.getUserAgents()[j].id,
                         "name" : agents.getUserAgents()[j].name,
                         "type" : agents.getUserAgents()[j].type,
+                        "connect" : agents.getUserAgents()[i].connect,
                     };
                 }
                 target.emit('user_list', msg);

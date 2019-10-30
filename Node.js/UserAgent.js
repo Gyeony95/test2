@@ -1,15 +1,16 @@
 module.exports = function() {
     var UserAgents = [];
 
-    var UserAgent = function(id, name, type) {
+    var UserAgent = function(id, name, type,connect) {
         this.name = name;
         this.id = id;
         this.type = type;
+        this.type = connect
     }
 
     return {
-        addUserAgent : function(id, name, type) {
-            var agent = new UserAgent(id, name, type);
+        addUserAgent : function(id, name, type, connect) {
+            var agent = new UserAgent(id, name, type, connect);
             UserAgents.push(agent);
         },
 
@@ -32,7 +33,7 @@ module.exports = function() {
             }
             console.log('user agent list:');
             for (var i = 0; i < UserAgents.length; i++) {
-                console.log(('agent idx:' + i + ' id:' + UserAgents[i].id + ' name:' + UserAgents[i].name + ' type:' + UserAgents[i].type).yellow);
+                console.log(('agent idx:' + i + ' id:' + UserAgents[i].id + ' name:' + UserAgents[i].name + ' type:' + UserAgents[i].type + ' connect:' + UserAgents[i].connect).yellow);
             }
         }
     }
