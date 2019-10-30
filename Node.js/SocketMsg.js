@@ -34,7 +34,7 @@ module.exports = function(socketio, agents) {
         }
     
         function request_user_list() {
-            
+            console.log("request_user_list 들어옴");
             var msg = {
                 "source" : "EasyRTC Server",
                 "target" : client.id,
